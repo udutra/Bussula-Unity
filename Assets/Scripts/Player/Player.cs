@@ -16,14 +16,14 @@ public class Player : MonoBehaviour {
     Vector3 vertical;
 
     // ground movement variables
-    float walkSpeed = 3f;
-    float runSpeed = 8f;
-    float speedTransition = 10f;
+    readonly float walkSpeed = 3f;
+    readonly float runSpeed = 8f;
+    readonly float speedTransition = 10f;
 
     float maxSpeed = 0;
-    float acceleration = 50f;
-    float desceleartion = 20f;
-    float currentVelocity;
+    readonly float acceleration = 50f;
+    readonly float desceleartion = 20f;
+    //readonly float currentVelocity;
 
     bool isMoving = false;
     bool running = false;
@@ -31,8 +31,8 @@ public class Player : MonoBehaviour {
     // air variables
     float gravity;
     float jumpSpeed;
-    float maxJumpHeight = 2f;
-    float timeToMaxHeight = 0.5f;
+    readonly float maxJumpHeight = 2f;
+    readonly float timeToMaxHeight = 0.5f;
 
     #endregion
 
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour {
         float forwardInput = Input.GetAxisRaw("Vertical");
         float strafeInput = Input.GetAxisRaw("Horizontal");
 
-        isMoving = (Mathf.Abs(forwardInput) >= Mathf.Epsilon || Mathf.Abs(strafeInput) >= Mathf.Epsilon) ? true : false;
+        isMoving = (Mathf.Abs(forwardInput) >= Mathf.Epsilon || Mathf.Abs(strafeInput) >= Mathf.Epsilon);
 
         if (isMoving) {
             running = Input.GetKey(KeyCode.LeftShift);
